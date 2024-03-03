@@ -32,8 +32,10 @@ export function MainComponent() {
             placeholder="Search..."
             type="text"
           />
-        </div>
+      </div>
+      <div className="mt-4">
         <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">My Favorite Restaurants</h2>
+      </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card>
             <CardHeader>
