@@ -20,8 +20,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
       console.log(req.body)
       res.status(201).json(data);
+      console.log(res)
     } catch (error) {
-      console.error('Error posting to OpenSearch:', error);
+      console.error('Error posting to OpenSearch:', error.response ? error.response.data : error);
       res.status(500).json({ error: 'Error posting to OpenSearch' });
     }
   } else {

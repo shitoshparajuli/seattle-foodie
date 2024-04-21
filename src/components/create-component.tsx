@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import { Dish, RestaurantData } from '@/model/model'
+import { useRouter } from "next/navigation";
 
 export default function CreateComponent() {
 
@@ -22,6 +23,7 @@ export default function CreateComponent() {
   const [overallRating, setOverallRating] = useState('');
   const [wouldVisitAgain, setWouldVisitAgain] = useState<boolean>(false);
   const [additionalComments, setAdditionalComments] = useState('');
+  const router = useRouter();
 
   // Function to add a new dish object to the dishes state
   const addDish = () => {
@@ -75,6 +77,7 @@ export default function CreateComponent() {
   
       if (response.ok) {
         console.log("Restaurant added successfully");
+        router.push('/?success=true');
         // Reset form or handle success
       } else {
         console.error("Failed to add restaurant");
@@ -124,7 +127,7 @@ export default function CreateComponent() {
                 <Input 
                   className="w-full" 
                   placeholder="Visit Date" 
-                  type="text" 
+                  type="date" 
                   value={visitDate}
                   onChange={(e) => setVisitDate(e.target.value)}
                 />
